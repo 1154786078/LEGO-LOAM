@@ -11,31 +11,39 @@ LEGO-LOAM built in ubuntu20.04 and ros-noetic of course path save
 # Ensure your C++ version is C++ 11 or higher (Ours C++14)
 # Firstly,you should install some libraries as follow to ensure your environment the same as ours:
 wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.0-alpha2.zip
+
 cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
+
 cd ~/Downloads/gtsam-4.0.0-alpha2/
+
 mkdir build && cd build
+
 cmake ..
+
 sudo make install
+
 # install another lib:
 sudo apt-get install libparmetis-dev
 # We made a lot change as possiable to decrease the potential issues caused by version problems，so you don't have to make more change only if your version is the same as ours.
-
-
 # install,and build it as:
 cd LeGO-LOAM
+
 catkin_make
+
 roslaunch lego_loam run.launch
+
 rosbag play yourbag.bag --clock --topic /velodyne_points
 
 
 # How to save the path in tum format
 # you should chagne thevisualizeGlobalMapThread in mapoptimization.cpp as:
 void visualizeGlobalMapThread(){
-        ros::Rate rate(0.2);
-        while (ros::ok()){
-            rate.sleep();
-            publishGlobalMap();
-        }
+
+        ros::Rate rate(0.2);	
+        while (ros::ok()){	
+            rate.sleep();	    
+            publishGlobalMap();	    
+        }	
         // save final point cloud
         std::cout << "start save final point cloud" << std::endl;
         std::cout << "===========================================" << std::endl;
