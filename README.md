@@ -1,4 +1,6 @@
 # LEGO-LOAM
+# CSDN blog(chinese version):https://blog.csdn.net/zb0824zb/article/details/138972102
+
 LEGO-LOAM built in ubuntu20.04 and ros-noetic of course path save
 # This project has been built in our environment （as mentioned above)
 # LEGO-LOAM is an updated version of A-LOAM,it has more constraints and uses graph optimization
